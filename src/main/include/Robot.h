@@ -8,25 +8,37 @@
 #include <ctre/Phoenix.h>
 #include <Joystick.h>
 #include <CORERobotLib.h>
+#include <DriveSubsystem.h>
 
+/* Drive ports */
 #define RIGHT_FRONT_PORT 10
 #define RIGHT_BACK_PORT 11
 #define LEFT_FRONT_PORT 12
 #define LEFT_BACK_PORT 13
-class Robot : public frc::IterativeRobot {
+
+/* Solenoids */
+#define LEFT_DRIVE_SHIFTER_PCM 1
+#define RIGHT_DRIVE_SHIFTER_PCM 1
+#define LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT 0
+#define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 2 
+#define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 1
+#define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 3
+
+using namespace CORE;
+using namespace std;
+
+class Robot : public CORERobot {
  public:
   Robot();
-  void RobotInit() override;
   void RobotPeriodic() override;
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
-  void TestPeriodic() override;
+	void DisabledInit() override;
+	void DisabledPeriodic() override;
+	void AutonomousInit() override;
+	void AutonomousPeriodic() override;
+	void TeleopInit() override;
+	void TeleopPeriodic() override;
+	void TestInit() override;
+	void TestPeriodic() override;
 
- private:
-  Joystick joystick;  
-  COREConstant <double> m_etherValueA, m_etherValueB;
-  TalonSRX m_rightFront, m_rightBack, m_leftFront, m_leftBack;
-  double m_leftStickValue, m_rightStickValue;
+  DriveSubsystem driveSubsystem;
 };
