@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/../CORERobotLib/src",
+                "${workspaceFolder}/../CORERobotLib/3rdParty/**",
+                "${workspaceFolder}/src/main/include",
+                "${workspaceFolder}/build/tmp/expandedArchives/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\frc\\bin\\arm-frc-linux-gnueabi-gcc.exe",
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "vscode-wpilib"
+        }
+    ],
+    "version": 4
+}
