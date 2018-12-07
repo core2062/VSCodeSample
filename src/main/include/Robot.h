@@ -28,9 +28,12 @@ using namespace CORE;
 using namespace std;
 
 class Robot : public CORERobot {
- public:
-  Robot();
-  void RobotPeriodic() override;
+public: 
+ 	Robot();
+	// void RobotInit() override;
+    // void TeleopInit() override;
+    // void Teleop() override;
+	void RobotPeriodic() override;
 	void DisabledInit() override;
 	void DisabledPeriodic() override;
 	void AutonomousInit() override;
@@ -38,7 +41,7 @@ class Robot : public CORERobot {
 	void TeleopInit() override;
 	void TeleopPeriodic() override;
 	void TestInit() override;
+	void Teleop() override;
 	void TestPeriodic() override;
-
-  DriveSubsystem driveSubsystem;
+	DriveSubsystem driveSubsystem;
 };

@@ -1,6 +1,6 @@
 #include <DriveSubsystem.h>
 #include <Robot.h>
-#include <COREDrive/COREEtherDrive.h>
+// #include <COREDrive/COREEtherDrive.h>
 
 using namespace CORE;
 
@@ -29,10 +29,13 @@ void DriveSubsystem::TeleopInit() {
 }
 
 
-void DriveSubsystem::Teleop(){
+void DriveSubsystem::Teleop() {
 	InitTalons();
 }
 
+void DriveSubsystem::PostLoopTask() {
+
+}
 void DriveSubsystem::SetHighGear(bool highGear) {
     m_leftDriveShifter.Set(DoubleSolenoid::kForward);
     m_rightDriveShifter.Set(DoubleSolenoid::kForward);

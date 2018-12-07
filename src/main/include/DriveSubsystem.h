@@ -7,6 +7,7 @@
 enum class DriveSide{LEFT = 1, RIGHT = 2, BOTH = 3};
 
 using namespace CORE;
+using namespace frc;
 
 class DriveSubsystem : public CORESubsystem {
 public:
@@ -14,6 +15,7 @@ public:
     void RobotInit() override;
     void TeleopInit() override;
     void Teleop() override;
+    void PostLoopTask() override;
     void InitTalons();
     void SetHighGear(bool highGear = true);
     void SetLowGear(bool lowGear = true);
