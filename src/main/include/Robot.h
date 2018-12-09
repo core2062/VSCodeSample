@@ -3,10 +3,8 @@
 
 #include <string>
 
-#include <IterativeRobot.h>
-#include <SmartDashboard/SendableChooser.h>
+#include <WPILib.h>
 #include <ctre/Phoenix.h>
-#include <Joystick.h>
 #include <CORERobotLib.h>
 #include <DriveSubsystem.h>
 
@@ -30,18 +28,10 @@ using namespace std;
 class Robot : public CORERobot {
 public: 
  	Robot();
-	// void RobotInit() override;
-    // void TeleopInit() override;
-    // void Teleop() override;
-	void RobotPeriodic() override;
-	void DisabledInit() override;
-	void DisabledPeriodic() override;
-	void AutonomousInit() override;
-	void AutonomousPeriodic() override;
-	void TeleopInit() override;
-	void TeleopPeriodic() override;
+	void RobotInit() override;
+    void TeleopInit() override;
+    void Teleop() override;
+	void Test() override;
 	void TestInit() override;
-	void Teleop() override;
-	void TestPeriodic() override;
 	DriveSubsystem driveSubsystem;
 };

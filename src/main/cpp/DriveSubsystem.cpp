@@ -1,6 +1,5 @@
 #include <DriveSubsystem.h>
 #include <Robot.h>
-// #include <COREDrive/COREEtherDrive.h>
 
 using namespace CORE;
 
