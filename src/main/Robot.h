@@ -34,4 +34,7 @@ public:
 	void Test() override;
 	void TestInit() override;
 	DriveSubsystem driveSubsystem;
+
+	static Robot * GetInstance();
+	DriveWaypoint driveWaypoint;
 };
