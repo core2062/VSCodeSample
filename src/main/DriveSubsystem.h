@@ -27,6 +27,22 @@ public:
     void SetMotorSpeed(double leftPercent, double rightPercent);
     double GetForwardPower();
 
+    void HardResetYaw();
+    void SoftResetYaw();
+    double GetYaw();
+    bool IsTurning();
+    void StartTurning(double angle, double tolerance, bool relative = false);
+    bool PathDone();
+    bool CheckPathEvent(std::string event);
+    void FollowPath(Path path, bool reversed = false, double maxAccel = 25.0, double tolerance = .25, bool gradualStop = true, double lookahead = 24.0);
+    void SetFrame(RobotFrame * frame);
+    std::pair<double, double> GetEncoderInches();
+	std::pair<double, double> GetEncoderSpeed();
+
+	Rotation2d GetGyroAngle();
+
+	void SetPos(Position2d pos);
+
     COREConstant<double> driveTurnkP;
 private:
     COREConstant<double> m_etherAValue, m_etherBValue, m_etherQuickTurnValue, m_ticksPerInch;
