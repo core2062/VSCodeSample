@@ -35,17 +35,16 @@ model {
             // you have good reason to remove it.
             binaries.all {
                 cppCompiler.args('-g')
-                linker.args("-LC:\\Users\\Steve\\Documents\\Workspace\\CORERobotLib\\lib",'-lCORERobotLib')
-                linker.args("-LC:\\Users\\Steve\\Documents\\Workspace\\CORERobotLib\\3rdparty\\seasocks\\Linux\\arm",'-lseasocks')
+                linker.args("-L../CORERobotLib/lib",'-lCORERobotLib')
+                linker.args("-L../CORERobotLib/3rdparty/seasocks/Linux/arm",'-lseasocks')
             }
 
             sources.cpp {
                 source {
-                    srcDir 'src/main/cpp'
+                    srcDir 'src/main'
                 }
                 exportedHeaders {
-                    srcDirs 'src/main/include'
-                    srcDirs 'src/main/cpp'
+                    srcDirs 'src/main'
                     srcDirs '../CORERobotLib/src'
                     srcDirs '../CORERobotLib/3rdparty/seasocks/src/main/c' 
                     srcDirs '../CORERobotLib/3rdparty/json/src/'
