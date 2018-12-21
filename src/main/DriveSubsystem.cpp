@@ -19,40 +19,23 @@ DriveSubsystem::DriveSubsystem() : driveTurnkP("Drive Turn P Value", .05),
 }
 
 void DriveSubsystem::RobotInit() {
-    InitTalons();
+    driverJoystick->RegisterAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
+    driverJoystick->RegisterAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_Y);
 }
 
 void DriveSubsystem::TeleopInit() {
-	COREEtherDrive::SetAB(m_etherAValue.Get(), m_etherBValue.Get());
-	COREEtherDrive::SetQuickturn(m_etherQuickTurnValue.Get());
+
 }
 
-
 void DriveSubsystem::Teleop() {
-	InitTalons();
+    double left = -driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
+	double right = -driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_Y);
+
+	SetMotorSpeed(left, right);
 }
 
 void DriveSubsystem::PostLoopTask() {
 
-}
-void DriveSubsystem::SetHighGear(bool highGear) {
-    m_leftDriveShifter.Set(DoubleSolenoid::kForward);
-    m_rightDriveShifter.Set(DoubleSolenoid::kForward);
-    m_highGear = true;
-}
-
-void DriveSubsystem::SetLowGear(bool lowGear) {
-    m_leftDriveShifter.Set(DoubleSolenoid::kReverse);
-    m_rightDriveShifter.Set(DoubleSolenoid::kReverse);
-    m_highGear = false;
-}
-
-bool DriveSubsystem::GetHighGear() {
-    return (m_leftDriveShifter.Get() == DoubleSolenoid::kForward);
-}
-
-bool DriveSubsystem::GetLowGear() {
-    return (m_leftDriveShifter.Get() == DoubleSolenoid::kReverse);
 }
 
 void DriveSubsystem::ResetEncoders(DriveSide whichSide){
