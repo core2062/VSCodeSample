@@ -27,17 +27,15 @@ public:
     void SetMotorSpeed(double leftPercent, double rightPercent);
     double GetForwardPower();
 
-    void HardResetYaw();
-    void SoftResetYaw();
+    void ResetYaw();
     double GetYaw();
-    bool IsTurning();
-    void StartTurning(double angle, double tolerance, bool relative = false);
     bool PathDone();
     bool CheckPathEvent(std::string event);
     void FollowPath(Path path, bool reversed = false, double maxAccel = 25.0, double tolerance = .25, bool gradualStop = true, double lookahead = 24.0);
     void SetFrame(RobotFrame * frame);
     std::pair<double, double> GetEncoderInches();
 	std::pair<double, double> GetEncoderSpeed();
+    AHRS * m_gyro;
 
 	Rotation2d GetGyroAngle();
 

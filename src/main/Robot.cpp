@@ -4,8 +4,8 @@
 #include <iostream>
 
 #include <SmartDashboard/SmartDashboard.h>
-Robot::Robot() : driveSubsystem() {
-  
+Robot::Robot() {
+    m_instance = this;
 }
 
 void Robot::Teleop() {
@@ -29,6 +29,13 @@ void Robot::Test() {
 
 void Robot::TestInit() {
   
+}
+
+Robot* Robot::GetInstance() {
+	if(!m_instance) {
+		CORELog::logError("Get instance returning null pointer!");
+	}
+	return m_instance;
 }
 
 START_ROBOT_CLASS(Robot)

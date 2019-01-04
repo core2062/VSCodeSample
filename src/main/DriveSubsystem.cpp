@@ -128,22 +128,10 @@ double DriveSubsystem::GetForwardPower() {
 	return power;
 }
 
-void DriveSubsystem::HardResetYaw() {
-
-}
-
-void DriveSubsystem::SoftResetYaw() {
-
+void DriveSubsystem::ResetYaw() {
+	m_gyro->ZeroYaw();
 }
 
 double DriveSubsystem::GetYaw() {
-
-}
-
-bool DriveSubsystem::IsTurning)() {
-
-}
-
-void DriveSubsystem::StartTurning(double angle, double tolerance) {
-
+	return (double) m_gyro->GetYaw();
 }
